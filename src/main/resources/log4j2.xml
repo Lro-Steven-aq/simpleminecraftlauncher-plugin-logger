@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Configuration xmlns="http://logging.apache.org/log4j/2.0/config" status="WARN">
     <Properties>
-        <Property name="LOG_PATTERN">"%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"</Property>
+        <Property name="LOG_PATTERN">%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Property>
         <Property name="LOG_DIR">.simpleminecraftlauncher/log</Property>
     </Properties>
     <Appenders>
