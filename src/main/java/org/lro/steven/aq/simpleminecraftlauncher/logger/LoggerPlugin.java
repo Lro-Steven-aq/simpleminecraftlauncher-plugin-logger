@@ -6,6 +6,7 @@ import org.apache.logging.log4j.core.config.ConfigurationSource;
 import org.apache.logging.log4j.core.config.Configurator;
 import org.lro.steven.aq.simpleminecraftlauncher.plugin.api.Plugin;
 import org.lro.steven.aq.simpleminecraftlauncher.plugin.api.event.impl.LogEvent;
+import org.lro.steven.aq.simpleminecraftlauncher.plugin.api.signalbus.EventConsumer;
 import org.lro.steven.aq.simpleminecraftlauncher.plugin.api.signalbus.SignalBus;
 
 import java.io.IOException;
@@ -28,32 +29,32 @@ public class LoggerPlugin implements Plugin {
 
         initialize();
 
-        signalBus.connect("log.info", (e) -> {
+        signalBus.connect("log.info", (EventConsumer) (e) -> {
             LogEvent event = (LogEvent) e;
             LOGGER.info(event.getMessage());
         });
 
-        signalBus.connect("log.error", (e) -> {
+        signalBus.connect("log.error", (EventConsumer) (e) -> {
             LogEvent event = (LogEvent) e;
             LOGGER.error(event.getMessage());
         });
 
-        signalBus.connect("log.warn", (e) -> {
+        signalBus.connect("log.warn", (EventConsumer) (e) -> {
             LogEvent event = (LogEvent) e;
             LOGGER.warn(event.getMessage());
         });
 
-        signalBus.connect("log.debug", (e) -> {
+        signalBus.connect("log.debug", (EventConsumer) (e) -> {
             LogEvent event = (LogEvent) e;
             LOGGER.debug(event.getMessage());
         });
 
-        signalBus.connect("log.fatal", (e) -> {
+        signalBus.connect("log.fatal", (EventConsumer) (e) -> {
             LogEvent event = (LogEvent) e;
             LOGGER.fatal(event.getMessage());
         });
 
-        signalBus.connect("log.trace", (e) -> {
+        signalBus.connect("log.trace", (EventConsumer) (e) -> {
             LogEvent event = (LogEvent) e;
             LOGGER.trace(event.getMessage());
         });
